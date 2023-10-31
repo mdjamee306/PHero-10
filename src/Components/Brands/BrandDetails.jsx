@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import Details from './Details';
 
 const BrandDetails = () => {
     const [brand, setBrand] = useState()
@@ -15,7 +16,7 @@ const BrandDetails = () => {
     }, [id, datas])
     return (
         <div>
-            
+            <Details brand={brand}></Details>
         </div>
     );
 };

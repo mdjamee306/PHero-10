@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BrandCards = ({ brand }) => {
     return (
         <div>
             <Link to={`/brands/${brand.id}`}>
-                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border">
+                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-white">
                     <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-xl bg-clip-border">
                         <img
                             src={brand.image}
