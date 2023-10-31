@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-const Details = ({brand}) => {
+const Details = ({ brand }) => {
     return (
         <div>
             {/* slides */}
@@ -8,35 +8,69 @@ const Details = ({brand}) => {
 
             </div>
             {/* cards */}
-            <div className="w-3/4 mx-auto mt-4 md:mt-9">
-                <div className="relative flex flex-col text-gray-700 bg-white shadow-lg w-96 rounded-xl bg-clip-border">
-                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white h-96 rounded-xl bg-clip-border">
+            <div className="w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 md:mt-8 mb-4 md:mb-8">
+
+                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-white">
+                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-xl bg-clip-border">
                         <img
-                            src={brand.image}
+                            src={brand?.image}
                             className="object-cover w-full h-full"
                         />
                     </div>
                     <div className="p-6">
                         <div className="flex items-center justify-between mb-2">
                             <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                                Apple AirPods
-                            </p>
-                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                                $95.00
+                                {brand?.title}
                             </p>
                         </div>
-                        <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-                            With plenty of talk and listen time, voice-activated Siri access, and an
-                            available wireless charging case.
-                        </p>
                     </div>
-                    <div className="p-6 pt-0">
-                        <button
-                            className="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                            type="button"
-                        >
-                            Add to Cart
-                        </button>
+                </div>
+
+                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-white">
+                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-xl bg-clip-border">
+                        <img
+                            src={brand?.image}
+                            className="object-cover w-full h-full"
+                        />
+                    </div>
+                    <div className="p-6">
+                        <div className="flex items-center justify-between mb-2">
+                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+                                {brand?.title}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-white">
+                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-xl bg-clip-border">
+                        <img
+                            src={brand?.image}
+                            className="object-cover w-full h-full"
+                        />
+                    </div>
+                    <div className="p-6">
+                        <div className="flex items-center justify-between mb-2">
+                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+                                {brand?.title}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-white">
+                    <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white rounded-xl bg-clip-border">
+                        <img
+                            src={brand?.image}
+                            className="object-cover w-full h-full"
+                        />
+                    </div>
+                    <div className="p-6">
+                        <div className="flex items-center justify-between mb-2">
+                            <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+                                {brand?.title}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
