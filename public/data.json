@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "brands" : "Adidas" ,
+    "brand" : "Adidas" ,
     "title": "Tech Summit 2023",
     "category_name": "Tech Conferences and Expos",
     "description": "Tech Summit 2023 is the premier event for tech enthusiasts and professionals. Explore the latest innovations, attend informative sessions, and network with industry leaders. Join us to stay ahead in the ever-evolving world of technology.",
@@ -13,7 +13,7 @@
   },
   {
     "id": 2,
-    "brands" : "Nike" ,
+    "brand" : "Nike" ,
     "title": "GameXpo 2023",
     "category_name": "Gaming Conventions",
     "description": "GameXpo 2023 is the ultimate gaming experience! Play the latest games, compete in thrilling tournaments, and meet your favorite game developers. Join us for a weekend of gaming excitement!",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "brands" : "Zara" ,
+    "brand" : "Zara" ,
     "title": "CodeFest 2023",
     "category_name": "Hackathons",
     "description": "CodeFest 2023 challenges developers to innovate and solve real-world problems. Collaborate with fellow coders, win exciting prizes, and make a positive impact through coding.",
@@ -37,7 +37,7 @@
   },
   {
     "id": 4,
-    "brands" : "Gucci" ,
+    "brand" : "Gucci" ,
     "title": "Tech Innovators Expo",
     "category_name": "Tech Conferences and Expos",
     "description": "Tech Innovators Expo is where groundbreaking technologies meet visionary minds. Dive into the future of tech, witness product launches, and connect with pioneers shaping the industry.",
@@ -49,7 +49,7 @@
   },
   {
     "id": 5,
-    "brands" : "H&M" ,
+    "brand" : "H&M" ,
     "title": "GameMasters Con",
     "category_name": "Gaming Conventions",
     "description": "GameMasters Con is a haven for gamers! Experience epic battles, explore virtual worlds, and meet gaming legends. Join us for a gaming extravaganza like no other!",
@@ -61,7 +61,7 @@
   },
   {
     "id": 6,
-    "brands" : "Levi's" ,
+    "brand" : "Levi's" ,
     "title": "CodeCrafters Challenge",
     "category_name": "Hackathons",
     "description": "CodeCrafters Challenge is your platform to code, create, and conquer. Solve complex challenges, unleash your coding skills, and take home recognition and rewards.",

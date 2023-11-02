@@ -1,9 +1,47 @@
+import Swal from 'sweetalert2'
 
 const Product = () => {
+    const handleAddProduct = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const type = form.type.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const image = form.image.value;
+
+        const newProduct = {name, brand, type, description, price, rating, image}
+        console.log(newProduct);
+        
+        // send data to the server
+
+        fetch('http://localhost:5000/product',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'A new product added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
+
+    }
     return (
-        <div className="bg-slate-300 p-24">
-            <h1 className='text-3xl md:text-5xl text-yellow-700 font-bold text-center mt-4'>Add A New Product</h1>
-            <form>
+        <div className="bg-slate-300 mt-4 px-12 md:px-24 py-4 md:py-8">
+            <h1 className='text-xl md:text-5xl text-yellow-700 font-normal md:font-bold text-center mb-4'>Add A New Product</h1>
+            <form onSubmit={handleAddProduct}>
                 {/* form row 1 */}
                 <div className='flex mb-8 '>
                     <div className="form-control md:w-1/2">
