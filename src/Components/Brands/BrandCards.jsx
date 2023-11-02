@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const BrandCards = ({ brand }) => {
     return (
         <div>
-            <Link to={`/brands/${brand.brands}`}>
+            <Link to={`/brands/${brand.id}`}>
                 <div className="relative flex flex-col shadow-2xl rounded-xl bg-clip-border bg-slate-300 hover:bg-gray-500">
                     <div className="relative mx-4 mt-4 overflow-hidden bg-white rounded-xl bg-clip-border">
                         <img
