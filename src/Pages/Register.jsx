@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../porviders/AuthProvider';
 import swal from 'sweetalert';
 
 const Register = () => {
-    const naviGated = useNavigate()
+    const navigate = useNavigate()
     const { createUser, googleSignIn } = useContext(AuthContext)
 
     const handleRegister = e => {
@@ -28,8 +28,8 @@ const Register = () => {
 
         createUser(email, password ,photoURL, name)
             .then(result => {
+
                 console.log(result.user)
-                naviGated('/login')
                 swal("Good job!", "successfully user created", "success");
             })
             .catch(error => {
@@ -44,7 +44,7 @@ const Register = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
-                naviGated('/')
+                navigate('/')
                 swal("Good job!", "successfully login", "success");
                 // toast("Wow so easy!")
             })

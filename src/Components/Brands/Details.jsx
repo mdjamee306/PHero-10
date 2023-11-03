@@ -23,7 +23,7 @@ const Details = ({ brand }) => {
                                 {brand?.title}
                             </p>
                         </div>
-                        <div>
+                        <div className="flex justify-between">
                             <button className="btn btn-active btn-primary">Details</button>
                             <button className="btn btn-active btn-primary">Update</button>
                         </div>

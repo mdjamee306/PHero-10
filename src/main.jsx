@@ -16,6 +16,7 @@ import Error from './Pages/Error.jsx';
 import BrandDetails from './Components/Brands/BrandDetails.jsx';
 import Contact from './Pages/Contact.jsx';
 import AuthProvider from './porviders/AuthProvider.jsx';
+import PrivateRoutes from './Pages/PrivateRoutes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/product',
-        element: <Product></Product>
+        element: <PrivateRoutes><Product></Product></PrivateRoutes>
       },
       {
         path: '/cart',
-        element: <Cart></Cart>
+        element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
       },
       {
         path: '/login',
@@ -46,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/brands/:id',
-        element: <BrandDetails></BrandDetails>,
+        element: <PrivateRoutes><BrandDetails></BrandDetails></PrivateRoutes>,
         loader: () => fetch('/data.json')
       },
       {

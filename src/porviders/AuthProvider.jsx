@@ -14,35 +14,41 @@ const AuthProvider = ({ children }) => {
 
     // Register
     const createUser = (email, password) => {
-        setLoading(true)
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Login
     const logIn = (email, password) => {
-        setLoading(true)
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // google signin
-    const googleSignIn = () =>{
-        return signInWithPopup(auth,googleProvider);
+    const googleSignIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
     }
 
     // Logout
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => { setUser(currentUser) });
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            setLoading(false)
+        });
+
         return () => {
             unSubscribe()
         }
     }, [])
 
     const userInfo = {
-        user, loading, createUser, logIn, logOut , googleSignIn
+        user, loading, createUser, logIn, logOut, googleSignIn
     }
 
     return (

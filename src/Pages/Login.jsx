@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { AuthContext } from '../porviders/AuthProvider';
 import swal from 'sweetalert';
@@ -8,9 +8,12 @@ import swal from 'sweetalert';
 
 const Login = () => {
 
-    const naviGated = useNavigate()
 
     const { logIn, googleSignIn } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -21,7 +24,7 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 console.log(result.user)
-                naviGated('/')
+                navigate(location?.state ? location.state : '/')
                 swal("Good job!", "successfully login", "success");
             })
             .catch(error => {
@@ -35,9 +38,10 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
-                naviGated('/')
                 swal("Good job!", "successfully login", "success");
-                // toast("Wow so easy!")
+
+                // login er por koi jabe oita set kortesi
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
