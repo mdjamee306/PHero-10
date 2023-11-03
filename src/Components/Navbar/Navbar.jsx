@@ -1,6 +1,42 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../porviders/AuthProvider';
+import { useContext } from 'react';
+import Swal from 'sweetalert2';
+
 
 const Navbar = () => {
+
+    const naviGated = useNavigate()
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+                // naviGated('/')
+                // swal("Good job!", "successfully logout", "success");
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Logout successfully'
+                })
+            })
+    }
     const navLink = <>
         <li><NavLink to={'/'} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-yellow-700 underline" : ""}>Home</NavLink>
         </li>
@@ -10,7 +46,11 @@ const Navbar = () => {
 
         <li><NavLink to={'/cart'} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-yellow-700 underline" : ""}>My Cart</NavLink>
         </li>
+
         <li><NavLink to={'/contact'} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-yellow-700 underline" : ""}>Contact</NavLink>
+        </li>
+
+        <li><NavLink to={'/register'} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-yellow-700 underline" : ""}>Register</NavLink>
         </li>
 
     </>
@@ -40,12 +80,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                    <Link to={'/login'}>
-                        <button className="btn">Login</button>
-                    </Link>
-                    <Link>
-                        <button className="btn">Logout</button>
-                    </Link>
+                    {
+                        user ?
+                            <div className="flex justify-center items-center gap-4">
+                                <label className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL} alt="user profile" />
+                                    </div>
+                                </label>
+                                <h3 className='font-bold text-xl'>{user?.displayName}</h3>
+                                <button onClick={handleLogout} className="btn">Logout</button>
+                            </div>
+                            :
+                            <Link to={'/login'}>
+                                <button className="btn">Login</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>

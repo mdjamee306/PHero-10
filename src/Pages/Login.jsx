@@ -1,14 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
+import { AuthContext } from '../porviders/AuthProvider';
+import swal from 'sweetalert';
+
 
 
 const Login = () => {
+
+    const naviGated = useNavigate()
+
+    const { logIn, googleSignIn } = useContext(AuthContext)
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const register = new FormData(e.currentTarget)
+        const email = register.get('email')
+        const password = register.get('password')
+
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                naviGated('/')
+                swal("Good job!", "successfully login", "success");
+            })
+            .catch(error => {
+                console.error(error)
+                swal("Error!", error.message, "error")
+            })
+    }
+
+    // google login
+    const googleIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user)
+                naviGated('/')
+                swal("Good job!", "successfully login", "success");
+                // toast("Wow so easy!")
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
     return (
-        <div  className="hero bg-gray-400 md:py-14 py-6">
+        <div className="hero bg-gray-400 md:py-14 py-6">
             <div data-aos="zoom-in-left" className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm">
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-black font-normal">Email</span>
@@ -25,8 +64,9 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <div className="form-control mt-6">
-                        <button className="btn btn-primary"><span className='text-sm'>Google</span> <span className='text-3xl'><AiOutlineGoogle></AiOutlineGoogle></span></button>
+                        <div className="form-control ">
+                            <div><h1 className='text-sm font-medium text-blue-950 text-center p-4'>Or Login with</h1></div>
+                            <button onClick={googleIn} className="btn btn-primary"><span className='text-sm'>Google</span> <span className='text-3xl'><AiOutlineGoogle></AiOutlineGoogle></span></button>
                         </div>
                     </form>
                 </div>

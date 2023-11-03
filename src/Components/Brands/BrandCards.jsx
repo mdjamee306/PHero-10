@@ -15,7 +15,7 @@ const BrandCards = ({ brand }) => {
                     <div className="p-6">
                         <div className="flex items-center justify-between mb-2">
                             <p className="block font-sans text-xl antialiased font-extrabold leading-relaxed text-purple-900">
-                                {brand.brands}
+                                {brand.brand}
                             </p>
                         </div>
                     </div>
