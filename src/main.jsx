@@ -18,7 +18,6 @@ import Contact from './Pages/Contact.jsx';
 import AuthProvider from './porviders/AuthProvider.jsx';
 import PrivateRoutes from './Pages/PrivateRoutes.jsx';
 import Detail from './Components/Brands/Detail.jsx';
-import DetailCard from './Components/Brands/DetailCard.jsx';
 import Update from './Pages/Update.jsx';
 
 const router = createBrowserRouter([
@@ -38,7 +37,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <PrivateRoutes><Cart></Cart></PrivateRoutes>
+        element: <PrivateRoutes><Cart></Cart></PrivateRoutes>,
+        loader: () => fetch('http://localhost:5000/cart')
       },
       {
         path: '/login',
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
       {
         path: '/brand/:id',
         element: <Detail></Detail>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       }
     ]
   },

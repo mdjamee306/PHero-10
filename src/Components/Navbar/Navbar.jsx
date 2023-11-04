@@ -9,18 +9,6 @@ const Navbar = () => {
     // theme handle
     const [darkmode, setDarkmode] = useState(false)
 
-    // const handleTheme = () => {
-    //     if (theme === 'dark-theme') {
-    //         setTheme('light-theme')
-    //     } else {
-    //         setTheme('dark-theme')
-    //     }
-    // }
-    // useEffect(() => {
-    //     document.body.className = theme;
-    // }, [theme])
-
-    // const naviGated = useNavigate()
     const { user, logOut } = useContext(AuthContext)
 
     const handleLogout = () => {

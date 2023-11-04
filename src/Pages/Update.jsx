@@ -11,6 +11,7 @@ const Update = () => {
     useEffect(() => {
         Aos.init();
     }, [])
+    
     const product = useLoaderData();
     const { name, _id, brand, type, description, price, rating, image } = product;
 
@@ -40,7 +41,7 @@ const Update = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.modifiedCount >0) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Product Updated successfully',

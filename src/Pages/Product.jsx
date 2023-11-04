@@ -58,7 +58,7 @@ const Product = () => {
                             <span className="label-text text-black">Product Name</span>
                         </label>
                         <label className="input-group">
-                            <input name="name" type="text" placeholder="Name" className="input input-bordered w-full" />
+                            <input name="name" type="text" placeholder="Name" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                     <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
@@ -66,7 +66,7 @@ const Product = () => {
                             <span className="label-text text-black">Brand Name</span>
                         </label>
                         <label className="input-group">
-                            <input name="brand" type="text" placeholder="Brand Name" className="input input-bordered w-full" />
+                            <input name="brand" type="text" placeholder="Brand Name" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ const Product = () => {
                             <span className="label-text text-black">Type</span>
                         </label>
                         <label className="input-group">
-                            <input name="type" type="text" placeholder="Type" className="input input-bordered w-full" />
+                            <input name="type" type="text" placeholder="Type" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                     <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
@@ -85,7 +85,7 @@ const Product = () => {
                             <span className="label-text text-black">Short Description</span>
                         </label>
                         <label className="input-group">
-                            <input name="description" type="text" placeholder="Short Description" className="input input-bordered w-full" />
+                            <input name="description" type="text" placeholder="Short Description" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ const Product = () => {
                             <span className="label-text text-black">Price</span>
                         </label>
                         <label className="input-group">
-                            <input name="price" type="text" placeholder="price" className="input input-bordered w-full" />
+                            <input name="price" type="text" placeholder="price" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                     <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
@@ -104,7 +104,7 @@ const Product = () => {
                             <span className="label-text text-black">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input name="rating" type="text" placeholder="rating" className="input input-bordered w-full" />
+                            <input name="rating" type="text" placeholder="rating" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ const Product = () => {
                             <span className="label-text text-black">Image</span>
                         </label>
                         <label className="input-group">
-                            <input name="image" type="text" placeholder="Photo URL" className="input input-bordered w-full" />
+                            <input name="image" type="text" placeholder="Photo URL" className="input input-bordered w-full text-white" />
                         </label>
                     </div>
                 </div>
