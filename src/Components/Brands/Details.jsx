@@ -23,7 +23,7 @@ const Details = ({ data }) => {
             </div>
             <div className="flex justify-between w-11/12 mx-auto pb-4">
                 <Link to={`/brand/${data._id}`}><button className="btn btn-primary">Details</button></Link>
-                <button className="btn btn-primary">Update</button>
+                <Link to={`/update/${data._id}`}><button className="btn btn-primary">Update</button></Link>
             </div>
         </div>
     );
