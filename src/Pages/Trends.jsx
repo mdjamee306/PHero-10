@@ -1,7 +1,16 @@
-import React from "react";
 import Slider from "react-slick";
 
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+
 const Trends = () => {
+
+    useEffect(() => {
+        Aos.init();
+    }, [])
+    
     var settings = {
         dots: true,
         infinite: true,
@@ -38,8 +47,8 @@ const Trends = () => {
         ]
     };
     return (
-        <div className="w-11/12 mx-auto">
-            <div className="text-center text-3xl md:text-5xl text-yellow-700 font-semibold md:mt-8 mb-8 ">Trending</div>
+        <div className="w-11/12 mx-auto mb-7">
+            <div data-aos="zoom-in" className="text-center text-3xl md:text-5xl text-yellow-700 font-semibold md:mt-8 mb-8 ">Trending</div>
             <Slider {...settings}>
                 {/* 1 */}
                 <div className="hover:filter hover:sepia hover:brightness-100 hover:grayscale-0 hover:hue-rotate-20 cursor-pointer">

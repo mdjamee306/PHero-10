@@ -17,6 +17,9 @@ import BrandDetails from './Components/Brands/BrandDetails.jsx';
 import Contact from './Pages/Contact.jsx';
 import AuthProvider from './porviders/AuthProvider.jsx';
 import PrivateRoutes from './Pages/PrivateRoutes.jsx';
+import Detail from './Components/Brands/Detail.jsx';
+import DetailCard from './Components/Brands/DetailCard.jsx';
+import Update from './Pages/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,13 +49,20 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/brands/:id',
-        element: <PrivateRoutes><BrandDetails></BrandDetails></PrivateRoutes>,
-        loader: () => fetch('/data.json')
+        path: '/brands/:brand',
+        element: <PrivateRoutes><BrandDetails></BrandDetails></PrivateRoutes>
       },
       {
         path: '/contact',
         element: <Contact></Contact>
+      },
+      {
+        path: '/brand/:id',
+        element: <Detail></Detail>
+      },
+      {
+        path: '/update',
+        element: <Update></Update>
       }
     ]
   },

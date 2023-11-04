@@ -3,8 +3,8 @@ import React from 'react';
 const Service = () => {
     return (
         <div>
-            <section className="text-white body-font overflow-hidden">
-                <div className="container pb-10 bg-slate-200 px-5 mx-auto">
+            <section className="text-white bg-slate-200 body-font overflow-hidden">
+                <div className="container pb-10  px-5 mx-auto">
                     <div className="flex md:mt-10 mt-4  flex-col text-center w-full mb-20">
                     <div data-aos="fade-up">
                                 <h1 className="text-3xl md:text-5xl text-yellow-700 font-semibold md:mt-8 mb-4 ">Pricing</h1>

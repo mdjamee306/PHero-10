@@ -1,22 +1,48 @@
 import { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Details from './Details';
+import Slide from '../../Pages/Slide';
 
 const BrandDetails = () => {
-    const [brand, setBrand] = useState()
-
-    const { id } = useParams();
-    const datas = useLoaderData();
+    const { brand } = useParams();
+    // console.log(brand);
+    const [datas, setDatas] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Fetch data when the component mounts
+        fetch(`http://localhost:5000/product`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Filter data based on the brand
+                const filteredData = data.filter((item) => item.brand === brand);
+                setDatas(filteredData);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setIsLoading(false);
+            });
+    }, [brand]);
 
-        const findBrandId = datas.find(data => data.id == id)
-        setBrand(findBrandId);
+    if (isLoading) {
+        return <p>NO Data Available</p>;
+    }
 
-    }, [id, datas])
     return (
-        <div>
-            <Details brand={brand}></Details>
+        <div className='md:mt-8 mb-8'>
+            <div className="h-[60vh] mb-8">
+                <Slide></Slide>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-3/4 mx-auto'>
+                {
+
+                    datas.map((data) => (
+                        <Details key={data._id} data={data} />
+                    ))
+                }
+            </div>
         </div>
     );
 };

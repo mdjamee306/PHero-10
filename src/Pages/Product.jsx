@@ -1,6 +1,15 @@
 import Swal from 'sweetalert2'
 
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+import Aos from 'aos';
+   
 const Product = () => {
+
+    useEffect(() => {
+        Aos.init();
+    }, [])
+
     const handleAddProduct = e =>{
         e.preventDefault();
         const form = e.target;
@@ -40,19 +49,19 @@ const Product = () => {
     }
     return (
         <div className="bg-slate-300 mt-4 px-12 md:px-24 py-4 md:py-8">
-            <h1 className='text-xl md:text-5xl text-yellow-700 font-normal md:font-bold text-center mb-4'>Add A New Product</h1>
+            <h1 data-aos="fade-up" className='text-xl md:text-5xl text-yellow-700 font-normal md:font-bold text-center mb-4'>Add A New Product</h1>
             <form onSubmit={handleAddProduct}>
                 {/* form row 1 */}
                 <div className='flex mb-8 '>
-                    <div className="form-control md:w-1/2">
+                    <div data-aos="fade-right" className="form-control md:w-1/2">
                         <label className="label ">
-                            <span className="label-text text-black">Name</span>
+                            <span className="label-text text-black">Product Name</span>
                         </label>
                         <label className="input-group">
                             <input name="name" type="text" placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
                         <label className="label">
                             <span className="label-text text-black">Brand Name</span>
                         </label>
@@ -63,7 +72,7 @@ const Product = () => {
                 </div>
                 {/* form row 2 */}
                 <div className='flex mb-8'>
-                    <div className="form-control md:w-1/2">
+                    <div data-aos="fade-right" className="form-control md:w-1/2">
                         <label className="label ">
                             <span className="label-text text-black">Type</span>
                         </label>
@@ -71,7 +80,7 @@ const Product = () => {
                             <input name="type" type="text" placeholder="Type" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
                         <label className="label">
                             <span className="label-text text-black">Short Description</span>
                         </label>
@@ -82,7 +91,7 @@ const Product = () => {
                 </div>
                 {/* form row 3 */}
                 <div className='flex mb-8'>
-                    <div className="form-control md:w-1/2">
+                    <div data-aos="fade-right" className="form-control md:w-1/2">
                         <label className="label ">
                             <span className="label-text text-black">Price</span>
                         </label>
@@ -90,7 +99,7 @@ const Product = () => {
                             <input name="price" type="text" placeholder="price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div data-aos="fade-left" className="form-control md:w-1/2 ml-4">
                         <label className="label">
                             <span className="label-text text-black">Rating</span>
                         </label>
@@ -101,7 +110,7 @@ const Product = () => {
                 </div>
                 {/* form row 4*/}
                 <div className=' mb-8'>
-                    <div className="form-control md:w-full">
+                    <div data-aos="zoom-in" className="form-control md:w-full">
                         <label className="label ">
                             <span className="label-text text-black">Image</span>
                         </label>
