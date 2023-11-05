@@ -1,8 +1,9 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../porviders/AuthProvider';
 import swal from 'sweetalert';
+import { getAuth, updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const Register = () => {
         const password = register.get('password')
         const name = register.get('name')
         const photoURL = register.get('photoURL')
+        const phone = register.get('phone')
 
         if (
             !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/.test(
@@ -26,15 +28,26 @@ const Register = () => {
         }
 
 
-        createUser(email, password ,photoURL, name)
+        createUser(email, password, photoURL, name, phone)
             .then(result => {
-
-                console.log(result.user)
-                swal("Good job!", "successfully user created", "success");
+                // After successful registration, update the user's profile
+                const auth = getAuth();
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photoURL
+                })
+                    .then(() => {
+                        navigate('/');
+                        console.log(result.user);
+                        swal("Good job!", "successfully user created", "success");
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
             })
             .catch(error => {
-                console.error(error)
-            })
+                console.error(error);
+            });
 
 
     }
@@ -56,7 +69,7 @@ const Register = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content md:gap-10 flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Register!!</h1>
+                    <h1 className="text-5xl font-bold text-purple-700">Register!!</h1>
                 </div>
                 <div data-aos="fade-right" className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
                     <form onSubmit={handleRegister}>
@@ -64,25 +77,31 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input name='name' type="text" placeholder="Name" className="input input-bordered" required />
+                            <input name='name' type="text" placeholder="Name" className="text-white input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">PhotoUrl</span>
                             </label>
-                            <input name='photoURL' type="text" placeholder="Photo Url" className="input input-bordered" required />
+                            <input name='photoURL' type="text" placeholder="Photo Url" className="text-white input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Phone Number</span>
+                            </label>
+                            <input name='phone' type="text" placeholder="phone" className="text-white input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="email" className="text-white input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                            <input name='password' type="password" placeholder="password" className="text-white input input-bordered" required />
 
                             <h3>Have an account? <Link to={'/login'} className='text-violet-900 text-xl font-semibold'>Login</Link></h3>
                         </div>

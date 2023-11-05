@@ -26,7 +26,18 @@ const BrandDetails = () => {
     }, [brand]);
 
     if (isLoading) {
-        return <p>NO Data Available</p>;
+        return <p className=''>NO Data Available</p>;
+    }
+
+    if (datas.length === 0) {
+        return (
+            <div className='md:mt-8 mb-8'>
+                <div className="h-[60vh] mb-8">
+                    <Slide></Slide>
+                </div>
+                <p className='text-3xl text-center'>No Data Available for {brand}</p>
+            </div>
+        );
     }
 
     return (

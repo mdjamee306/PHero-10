@@ -56,13 +56,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text text-black font-normal">Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="email" className="text-white input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-black font-normal">Password</span>
                             </label>
-                            <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                            <input name='password' type="password" placeholder="password" className="text-white input input-bordered" required />
                             <h3 className='text-black font-normal'>Do not have an account? <Link to={'/register'} className='text-violet-900 text-xl font-semibold'>Register</Link></h3>
                         </div>
                         <div className="form-control mt-6">
