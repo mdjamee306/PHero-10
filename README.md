@@ -1,6 +1,6 @@
 <!-- Live website below -->
 Live Website Link: 
-[TechG](https://6547b8a462392e5dda9ab7a1--sparkly-profiterole-b96ddd.netlify.app/)
+[Fashion Flock✨](https://6547b8a462392e5dda9ab7a1--sparkly-profiterole-b96ddd.netlify.app/)
 
 Features One: 
 
