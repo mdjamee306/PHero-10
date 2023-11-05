@@ -1,5 +1,6 @@
 <!-- Live website below -->
-
+Live Website Link: 
+[TechG](https://6547b8a462392e5dda9ab7a1--sparkly-profiterole-b96ddd.netlify.app/)
 
 Features One: 
 
@@ -21,5 +22,5 @@ Features Five:
 
 After clicking add to cart , you can see the product details and you can delete product form the my cart menu which is top of the navbar.If you have any complain about item or product you can Contact us by clicking on the Contact menu.
 
-There are lots of things that we will be adding soon. Farther details Contact with us.
+There are lots of things that we will be adding soon.Farther details Contact with us.
 Best Wishes❤❤

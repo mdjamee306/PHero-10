@@ -5,13 +5,13 @@ import Slide from '../../Pages/Slide';
 
 const BrandDetails = () => {
     const { brand } = useParams();
-    // console.log(brand);
+    console.log(brand);
     const [datas, setDatas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         // Fetch data when the component mounts
-        fetch(`http://localhost:5000/product`)
+        fetch(`https://b8a10-brandshop-server-side-mdjamee306.vercel.app/product`)
             .then((response) => response.json())
             .then((data) => {
                 // Filter data based on the brand

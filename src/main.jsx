@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <PrivateRoutes><Cart></Cart></PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/cart')
+        loader: () => fetch('https://b8a10-brandshop-server-side-mdjamee306.vercel.app/cart')
       },
       {
         path: '/login',
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
       {
         path: '/brand/:id',
         element: <Detail></Detail>,
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://b8a10-brandshop-server-side-mdjamee306.vercel.app/product/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://b8a10-brandshop-server-side-mdjamee306.vercel.app/product/${params.id}`)
       }
     ]
   },
